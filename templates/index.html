@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Bank Application</title>
+</head>
+<body>
+    <h1>Welcome to Sumit Bhoyar Personal Bank</h1>
+    <h2>Select an Account</h2>
+    <ul>
+        <li><a href="{{ url_for('account', account_type='savings') }}">Savings Account</a></li>
+        <li><a href="{{ url_for('account', account_type='current') }}">Current Account</a></li>
+    </ul>
+</body>
+</html>

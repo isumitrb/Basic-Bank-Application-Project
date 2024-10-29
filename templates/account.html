@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>{{ account.account_type }} Account</title>
+</head>
+<body>
+    <h1>{{ account.account_type }} Account</h1>
+    <h2>Balance: ${{ balance }}</h2>
+    
+    <div class="details">
+        <h3>Account Details</h3>
+        <ul>
+            {% for key, value in details.items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <form method="POST">
+        <h3>Deposit Money</h3>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <input type="hidden" name="action" value="deposit">
+        <button type="submit">Deposit</button>
+    </form>
+
+    <form method="POST">
+        <h3>Withdraw Money</h3>
+        <input type="number" name="amount" placeholder="Amount" required>
+        <input type="hidden" name="action" value="withdraw">
+        <button type="submit">Withdraw</button>
+    </form>
+
+    <form method="POST">
+        <h3>Add Account Detail</h3>
+        <input type="text" name="detail_key" placeholder="Detail Key" required>
+        <input type="text" name="detail_value" placeholder="Detail Value" required>
+        <input type="hidden" name="action" value="add_detail">
+        <button type="submit">Add Detail</button>
+    </form>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
