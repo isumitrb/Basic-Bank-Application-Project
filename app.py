@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
@@ -56,6 +57,4 @@ def account(account_type):
     return render_template('account.html', account=account, details=details, balance=balance)
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
